@@ -19,7 +19,9 @@
                 }, 100);
             }).
             error(function(data, status, headers, config) {
-                alert('Erreur : Impossible de charger les fuseaux horaires');
+                //alert('Erreur : Impossible de charger les fuseaux horaires');
+                $('.spinner').html('<p>Erreur : Impossible de charger les fuseaux horaires</p>')
+                $('.spinner').addClass('error');
             });
     });
 

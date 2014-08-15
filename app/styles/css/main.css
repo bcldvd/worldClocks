@@ -24,6 +24,9 @@
 .spinner.ng-hide {
   opacity: 0;
 }
+.spinner.error p {
+  font-weight: bold;
+}
 .spinner > div {
   width: 18px;
   height: 18px;
@@ -71,12 +74,17 @@
   }
 }
 #clocks .timezoneName {
-  color: #bdc3c7;
+  color: #ecf0f1;
 }
 #clocks clock {
   display: block;
   margin: 0 0 20px;
   font-size: 2em;
+}
+#clocks clock p span {
+  text-transform: uppercase;
+  color: #bdc3c7;
+  font-size: 0.5em;
 }
 body {
   background: #2980b9;

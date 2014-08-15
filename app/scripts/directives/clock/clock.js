@@ -1,21 +1,29 @@
 (function () {
+    'use strict';
+
     var app = angular.module('app-directives', []);
 
     app.directive('clock', function($timeout) {
         return {
             scope: true,  // use a child scope that inherits from parent
             restrict: 'E',
-            template: '<p></p>',
+            templateUrl: 'scripts/directives/clock/clock-partial.html',
             link: function (scope, elem, attrs) {
+                scope.resource = {
+                    time: 'time',
+                    day: 'day'
+                };
+
                 scope.updateTime = function () {
                     if (scope.loading) { return; }
                     var tempDate;
                     var strTz = attrs.timezone;
                     tempDate = moment.tz(strTz);
                     $timeout(function() {
-                        elem.html(tempDate.format('HH:mm:ss [(]Do MMM[)]'));
+                        scope.resource.time = tempDate.format('HH:mm:ss');
+                        scope.resource.day = tempDate.format('Do MMM');
                     }, 0);
-                }
+                };
 
                 scope.updateTime();
 

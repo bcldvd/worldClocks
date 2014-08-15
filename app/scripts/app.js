@@ -1,5 +1,5 @@
 (function() {
 
-    var app = this.angular.module('myApp', ['myAppControllers']);
+    var app = this.angular.module('myApp', ['myAppControllers', 'app-directives', 'ngSanitize', 'ngAnimate']);
 
 })();

@@ -1,7 +1,7 @@
 (function() {
     var app = angular.module('myAppControllers', []);
 
-    app.controller('SelectCtrl', function ($scope) {
+    app.controller('SelectCtrl', function ($scope, $timeout) {
         $.ajax({
             url: "../bower_components/moment-timezone/data/packed/latest.json",
             dataType: 'json'
@@ -33,8 +33,9 @@
                 var tempDate;
                 var strTz = $scope.selectedItem.value;
                 tempDate = moment.tz(strTz);
-                $scope.formattedTime = tempDate.format('HH:mm:ss [(]Do MMM[)]');
-                $scope.$apply();
+                $timeout(function() {
+                    $scope.formattedTime = tempDate.format('HH:mm:ss [(]Do MMM[)]');
+                }, 0);
             }
 
             $scope.updateTime();

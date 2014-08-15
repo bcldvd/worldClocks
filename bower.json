@@ -1,0 +1,24 @@
+{
+  "name": "worldClocks",
+  "version": "0.1.0",
+  "authors": [
+    "David Boclé <bcldvd@gmail.com>"
+  ],
+  "main": "app/index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.22",
+    "moment": "~2.8.1",
+    "moment-timezone": "~0.2.1",
+    "bootstrap": "~3.2.0",
+    "modernizr": "~2.8.3"
+  }
+}

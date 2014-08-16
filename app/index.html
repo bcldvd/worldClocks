@@ -30,22 +30,18 @@
     </div>
 
     <div ng-controller="TimezoneCtrl as tzCtrl">
+
+        <form name="selectTimezoneForm"  ng-submit="tzCtrl.addTimezone()" novalidate>
+            <select ui-select2="{minimumInputLength: 2}" ng-model="tzCtrl.timezone" data-placeholder="Nouveau fuseau horaire" ng-change="tzCtrl.addTimezone()">
+                <option value=""></option>
+                <option ng-repeat="timezoneData in data" value="{{timezoneData}}">{{timezoneData}}</option>
+            </select>
+        </form>
+
         <div id="clocks">
             <div ng-repeat="timezone in tzCtrl.timezones">
-                <span class="timezoneName">{{timezone}}</span>
                 <clock timezone="{{timezone}}"></clock>
-
             </div>
-
-            <form name="selectTimezoneForm"  ng-submit="tzCtrl.addTimezone()" novalidate>
-                <select ui-select2="{minimumInputLength: 2}" ng-model="tzCtrl.timezone" data-placeholder="Nouveau fuseau horaire">
-                    <option value=""></option>
-                    <option ng-repeat="timezone in data" value="{{timezone}}">{{timezone}}</option>
-                </select>
-                <input type="submit" value="+" class="btn btn-primary btn-sm"/>
-            </form>
-
-
         </div>
     </div>
 
@@ -70,5 +66,6 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/controller.js"></script>
 <script src="scripts/directives/clock/clock.js"></script>
+<script src="scripts/filters.js"></script>
 </body>
 </html>

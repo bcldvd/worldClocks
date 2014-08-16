@@ -17,8 +17,8 @@
                 scope.updateTime = function () {
                     if (scope.loading) { return; }
                     var tempDate;
-                    var strTz = attrs.timezone;
-                    tempDate = moment.tz(strTz);
+                    var timezone = attrs.timezone;
+                    tempDate = moment.tz(timezone);
                     $timeout(function() {
                         scope.resource.time = tempDate.format('HH:mm:ss');
                         scope.resource.day = tempDate.format('Do MMM');

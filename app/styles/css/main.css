@@ -74,18 +74,16 @@
     -webkit-transform: scale(1);
   }
 }
-form[name="selectTimezoneForm"] input[type="submit"] {
-  margin: 0 5px;
-}
-#clocks .timezoneName {
-  color: #ecf0f1;
-}
-#clocks clock {
+clock {
   display: block;
   margin: 0 0 20px;
   font-size: 2em;
 }
-#clocks clock p span {
+clock .timezoneName {
+  color: #ecf0f1;
+  font-size: 0.5em;
+}
+clock p span {
   text-transform: uppercase;
   color: #bdc3c7;
   font-size: 0.5em;

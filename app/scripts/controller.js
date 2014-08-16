@@ -31,9 +31,11 @@
         this.timezone = '';
 
         this.addTimezone = function() {
-            if ($scope.data.indexOf(this.timezone) < 0) {
+            if ($scope.data.indexOf(this.timezone) < 0 || this.timezones.indexOf(this.timezone) > -1) {
                 console.log('nope');
-                return; }
+                this.timezone = '';
+                return;
+            }
             this.timezones.push(this.timezone);
             this.timezone = '';
         }

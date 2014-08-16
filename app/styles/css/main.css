@@ -90,3 +90,6 @@ body {
   background: #2980b9;
   font-family: 'Lato';
 }
+body .container {
+  padding: 5% 0;
+}

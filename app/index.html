@@ -18,20 +18,30 @@
 </head>
 <body  ng-app="myApp">
 
-<div class="container" ng-controller="TimeZoneCtrl">
+<div ng-controller="LoadingCtrl">
     <div class="spinner" ng-show="loading">
         <div class="bounce1"></div>
         <div class="bounce2"></div>
         <div class="bounce3"></div>
         <p>Chargement des fuseaux horaires</p>
     </div>
+</div>
 
-      <div ng-hide="loading" ng-controller="SelectCtrl as select" id="clocks">
-          <div ng-repeat="tz in select.timezones">
-              <span class="timezoneName">{{tz.value}}</span>
-              <clock timezone="{{tz.value}}"></clock>
+
+<div class="container" ng-controller="TimezoneCtrl as tzCtrl">
+
+      <div id="clocks">
+          <div ng-repeat="timezone in tzCtrl.timezones">
+              <span class="timezoneName">{{timezone}}</span>
+              <clock timezone="{{timezone}}"></clock>
 
           </div>
+
+          <form name="selectTimezoneForm"  ng-submit="tzCtrl.addTimezone()" novalidate>
+              <p>{{tzCtrl.timezone}}</p>
+              <input type="text" ng-model="tzCtrl.timezone"/>
+              <input type="submit" value="Nouveau fuseau horaire"/>
+          </form>
       </div>
 
 </div> <!-- /container -->

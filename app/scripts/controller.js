@@ -2,21 +2,22 @@
     var app = angular.module('myAppControllers', []);
 
     /**
-     * TimeZoneCtrl
+     * LoadingCtrl
      * Loads the timezones
      */
-    app.controller('TimeZoneCtrl', function ($scope, $http){
+    app.controller('LoadingCtrl', function ($scope, $http){
         $scope.loading = true;
-        $scope.timezonesPackedUrl = '../bower_components/moment-timezone/data/packed/latest.json';
+        var timezonesPackedUrl = '../bower_components/moment-timezone/data/packed/latest.json';
 
-        $http({method: 'GET', url: $scope.timezonesPackedUrl}).
+        $http({method: 'GET', url: timezonesPackedUrl, cache: true}).
             success(function(data, status, headers, config) {
                 moment.tz.load(data);
+                // Prepare timezones list for Select2
+                app.timezones = data.zones.map(function(array) {
+                    return array.split('|')[0];
+                });
                 // Once that moment-timezone's data is loaded, stop loading
-                setTimeout(function (){
-                    // With a delay of 100ms to make things prettier
-                    $scope.loading = false;
-                }, 100);
+                $scope.loading = false;
             }).
             error(function(data, status, headers, config) {
                 //alert('Erreur : Impossible de charger les fuseaux horaires');
@@ -25,25 +26,16 @@
             });
     });
 
-    app.controller('SelectCtrl', function ($scope, $timeout) {
-        //the selections for the time zone drop down
-        this.timezones = [{
-            label: "Singapore",
-            value: "Asia/Singapore"
-        }, {
-            label: "Sydney",
-            value: "Australia/Sydney"
-        }, {
-            label: "EST5EDT",
-            value: "EST5EDT"
-        }, {
-            label: "Amsterdam",
-            value: "Europe/Amsterdam"
-        }, {
-            label: "London",
-            value: "Europe/London"
-        }];
+    app.controller('TimezoneCtrl', function ($scope) {
+        this.timezones = [];
+        this.timezone = '';
 
+        this.addTimezone = function() {
+            console.log(app.timezones);
+            this.timezones.push(this.timezone);
+            this.timezone = '';
+        }
 
-      });
+    });
+
 })();

@@ -9,6 +9,11 @@ Random project to get me started with AngularJS
 **David Boclé** - http://github.com/bcldvd
 
 
+## TODO
+- Find an appropriate design
+- Change clock directive to have seconds change at the same time for all clocks
+
+
 ## Credits
 
 - [SpinKit](https://github.com/tobiasahlin/SpinKit) by [@tobiasahlin](https://github.com/tobiasahlin)

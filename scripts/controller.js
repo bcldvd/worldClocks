@@ -7,7 +7,7 @@
      */
     app.controller('LoadingCtrl', function ($scope, $http){
         $scope.loading = true;
-        var timezonesPackedUrl = '../bower_components/moment-timezone/data/packed/latest.json';
+        var timezonesPackedUrl = 'bower_components/moment-timezone/data/packed/latest.json';
 
         $http({method: 'GET', url: timezonesPackedUrl, cache: true}).
             success(function(data, status, headers, config) {

@@ -1,4 +1,4 @@
-colorPalette
+worldClocks
 =====================
 
 Random project to get me started with AngularJS

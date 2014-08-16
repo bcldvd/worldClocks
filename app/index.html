@@ -13,36 +13,42 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
 
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/select2/select2.css">
+    <link rel="stylesheet" href="../bower_components/select2/select2-bootstrap.css">
     <link rel="stylesheet" href="styles/css/main.css">
 
 </head>
 <body  ng-app="myApp">
 
-<div ng-controller="LoadingCtrl">
+<div class="container" ng-controller="LoadingCtrl">
+
     <div class="spinner" ng-show="loading">
         <div class="bounce1"></div>
         <div class="bounce2"></div>
         <div class="bounce3"></div>
         <p>Chargement des fuseaux horaires</p>
     </div>
-</div>
+
+    <div ng-controller="TimezoneCtrl as tzCtrl">
+        <div id="clocks">
+            <div ng-repeat="timezone in tzCtrl.timezones">
+                <span class="timezoneName">{{timezone}}</span>
+                <clock timezone="{{timezone}}"></clock>
+
+            </div>
+
+            <form name="selectTimezoneForm"  ng-submit="tzCtrl.addTimezone()" novalidate>
+                <select ui-select2="{minimumInputLength: 2}" ng-model="tzCtrl.timezone" data-placeholder="Nouveau fuseau horaire">
+                    <option value=""></option>
+                    <option ng-repeat="timezone in data" value="{{timezone}}">{{timezone}}</option>
+                </select>
+                <input type="submit" value="+" class="btn btn-primary btn-sm"/>
+            </form>
 
 
-<div class="container" ng-controller="TimezoneCtrl as tzCtrl">
+        </div>
+    </div>
 
-      <div id="clocks">
-          <div ng-repeat="timezone in tzCtrl.timezones">
-              <span class="timezoneName">{{timezone}}</span>
-              <clock timezone="{{timezone}}"></clock>
-
-          </div>
-
-          <form name="selectTimezoneForm"  ng-submit="tzCtrl.addTimezone()" novalidate>
-              <p>{{tzCtrl.timezone}}</p>
-              <input type="text" ng-model="tzCtrl.timezone"/>
-              <input type="submit" value="Nouveau fuseau horaire"/>
-          </form>
-      </div>
 
 </div> <!-- /container -->
 
@@ -52,9 +58,12 @@
 <![endif]-->
 
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/select2/select2.js"></script>
+<script src="../bower_components/select2/select2_locale_fr.js"></script>
 <script src="../bower_components/angular/angular.min.js"></script>
 <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="../bower_components/angular-ui-select2/src/select2.js"></script>
 <script src="../bower_components/moment/moment.js"></script>
 <script src="../bower_components/moment/locale/fr.js"></script>
 <script src="../bower_components/moment-timezone/moment-timezone.js"></script>

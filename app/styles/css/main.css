@@ -12,6 +12,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 50;
   height: 100%;
   width: 100%;
   padding: 20%;
@@ -72,6 +73,9 @@
     transform: scale(1);
     -webkit-transform: scale(1);
   }
+}
+form[name="selectTimezoneForm"] input[type="submit"] {
+  margin: 0 5px;
 }
 #clocks .timezoneName {
   color: #ecf0f1;

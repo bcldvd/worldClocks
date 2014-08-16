@@ -21,6 +21,7 @@
     "bootstrap": "~3.2.0",
     "modernizr": "~2.8.3",
     "angular-sanitize": "~1.2.22",
-    "angular-animate": "~1.2.22"
+    "angular-animate": "~1.2.22",
+    "angular-ui-select2": "~0.0.5"
   }
 }

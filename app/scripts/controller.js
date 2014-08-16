@@ -13,7 +13,7 @@
             success(function(data, status, headers, config) {
                 moment.tz.load(data);
                 // Prepare timezones list for Select2
-                app.timezones = data.zones.map(function(array) {
+                $scope.data = data.zones.map(function(array) {
                     return array.split('|')[0];
                 });
                 // Once that moment-timezone's data is loaded, stop loading
@@ -31,7 +31,9 @@
         this.timezone = '';
 
         this.addTimezone = function() {
-            console.log(app.timezones);
+            if ($scope.data.indexOf(this.timezone) < 0) {
+                console.log('nope');
+                return; }
             this.timezones.push(this.timezone);
             this.timezone = '';
         }

@@ -1,0 +1,16 @@
+{
+  "name": "worldClocks",
+  "version": "0.1.0",
+  "description": "Add clocks from all timezones easily",
+  "main": "app/index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcldvd/worldClocks.git"
+  },
+  "author": "David Boclé",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bcldvd/worldClocks/issues"
+  },
+  "homepage": "https://github.com/bcldvd/worldClocks"
+}
